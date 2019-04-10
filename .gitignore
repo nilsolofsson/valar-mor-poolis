@@ -83,4 +83,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-/config.js
+config.js
+
+.DS_Store
