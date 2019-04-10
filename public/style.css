@@ -1,0 +1,97 @@
+body {
+	background-color: #2E3036;
+}
+
+.white {
+	color: white;
+}
+
+.col-md-15 {
+	flex: 0 0 12.499999995%;
+	max-width: 12.499999995%;
+}
+
+.got-btn {
+	background: #FF4545;
+	color: white;
+	line-height: 42px;
+	padding: 0 20px;
+	-webkit-transition: opacity 0.2s ease;
+	transition: opacity 0.2s ease;
+}
+
+.got-medium-label {
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.got-snow-overlay {
+	top: 60px;
+	margin-left: 80px;
+	width: 420px;
+    height:420px;
+    position: absolute;
+	background-size: contain;
+    background-image: url(/public/gif/2eSd.gif);
+    border-radius: 50%;
+}
+
+.background-dead {
+	background-color: #FFEDED;
+}
+
+.background-walker {
+	background-color: #EDF3FF;
+}
+
+.got-status-box {
+	background: white;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.got-status-big-number {
+	font-size: 100px;
+}
+
+.got-text-big {
+	font-family: garamond, times, serif;
+	font-size: 60px;
+}
+
+.got-text-mid {
+	font-size: 18px;
+	color: #999ca1;
+}
+
+.got-text-slim {
+	font-weight: 200;
+}
+
+.got-btn:hover {
+	color: white;
+	opacity: 0.9;
+}
+
+.background-dark-grey {
+	background-color: #5B5D62;
+	border: 2px solid #5B5D62;
+}
+
+.background-gold {
+	background-color: #FFD23E;
+	border: 2px solid #FFD23E;
+}
+
+.got-table {
+	border-radius: 4px;
+	background: white;
+	overflow: hidden;
+	box-shadow: 0 0 35px rgba(140, 152, 164, 0.125) !important;
+}
+
+.color-white {
+	color: white;
+}
