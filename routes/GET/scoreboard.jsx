@@ -1,21 +1,24 @@
 const React = require('react'),
     Base = require('./base.jsx'),
     TopSection = require('../components/top_section.jsx'),
+    Snow = require('../components/snow.jsx'),
     StatisticsSection = require('../components/statistics_section.jsx'),
     CharacterTable = require('../components/character_table.jsx'),
     EmployeeTable = require('../components/employee_table.jsx');
     
 
-
 class Scoreboard extends React.Component {
     render() {
         return (
             <Base title={this.props.title}>
+
                 <audio autoplay>
                     <source src="/public/MP3/Game of thrones 8-bit.mp3" type="audio/mpeg"/>
                 </audio>
+
+                <Snow></Snow>
                 
-                <TopSection></TopSection>
+                <TopSection title="All men must bet"></TopSection>
 
                 <StatisticsSection title="Statistics"></StatisticsSection>
 
