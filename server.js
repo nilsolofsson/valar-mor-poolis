@@ -17,7 +17,7 @@ class Server {
     }
 
     setupRoutes() {
-        this.server.get('/', (req,res) => {
+        this.server.get('*', (req,res) => {
             res.render('GET/scoreboard');
         });
     }

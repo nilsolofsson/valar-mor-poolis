@@ -1,5 +1,6 @@
-const React = require('react');
-const Base = require('./base.jsx');
+const React = require('react'),
+    Base = require('./base.jsx'),
+    CharacterCard = require('../components/character_card.jsx');
 
 class Scoreboard extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class Scoreboard extends React.Component {
                 <audio autoplay>
                     <source src="/public/MP3/Game of thrones 8-bit.mp3" type="audio/mpeg"/>
                 </audio>
+                
                 <div class="container pb-5">
                     <div class="row">
                         <div class="col-xs-12 d-block d-md-none p-3">
@@ -22,7 +24,6 @@ class Scoreboard extends React.Component {
                         </div>
                         <div class="col-xs-12 col-md-7 align-items-center d-flex py-5">
                             <div class="d-none d-md-block">
-                                <div class="d-block got-snow-overlay"></div>
                                 <img src="/public/svg/got-image.svg" alt="" class="mw-100"/>
                             </div>
                         </div>
@@ -73,27 +74,30 @@ class Scoreboard extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="background-dead">
-                                        <td>John Snow</td>
-                                        <td>DEAD!</td>
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr class="background-walker">
-                                        <td>Daenaerys Targaryen</td>
-                                        <td>Walker</td>
-                                        <td>4</td>
-                                        <td>3</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tyrion Lannister</td>
-                                        <td>Alive</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>3</td>
-                                    </tr>
+                                    <CharacterCard 
+                                        betsDeadCount="2"
+                                        betsAliveCount="4"
+                                        betsWalkerCount="2" 
+                                        statusClass="background-dead" 
+                                        name="John Snow" 
+                                        status="Dead!"
+                                    />
+                                    <CharacterCard 
+                                        betsDeadCount="2"
+                                        betsAliveCount="4"
+                                        betsWalkerCount="2" 
+                                        statusClass="background-walker" 
+                                        name="Danaerys Targaryen" 
+                                        status="Walker"
+                                    />
+                                    <CharacterCard 
+                                        betsDeadCount="2"
+                                        betsAliveCount="4"
+                                        betsWalkerCount="2" 
+                                        statusClass="" 
+                                        name="Tyrion Lannister" 
+                                        status="Alive"
+                                    />
                                 </tbody>
                             </table>
                         </div>
