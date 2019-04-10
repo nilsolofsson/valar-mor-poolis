@@ -1,1 +1,2 @@
-console.log('hello world')
+const config = require('./config');
+const server = new (require('./server'))(config);
