@@ -10,7 +10,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="col-xs-12 col-md-5 align-items-center d-flex py-4">
                         <div>
-                            <h1 class="got-text-big white">All men must bet</h1>
+                            <h1 class="got-text-big white">{ this.props.title }</h1>
                             <p class="got-text-mid">The ultimate Game of Thrones season 8 death pool. Who will live? Who will die? Who will turn into a blood thirsty ice zombie? Place your bets and compete against your coworkers.</p>
                             <a href="" class="btn got-btn">Place my death bets</a>
                         </div>
