@@ -1,6 +1,11 @@
 const React = require('react'),
     Base = require('./base.jsx'),
-    CharacterCard = require('../components/character_card.jsx');
+    TopSection = require('../components/top_section.jsx'),
+    StatisticsSection = require('../components/statistics_section.jsx'),
+    CharacterTable = require('../components/character_table.jsx'),
+    EmployeeTable = require('../components/employee_table.jsx');
+    
+
 
 class Scoreboard extends React.Component {
     render() {
@@ -10,122 +15,15 @@ class Scoreboard extends React.Component {
                     <source src="/public/MP3/Game of thrones 8-bit.mp3" type="audio/mpeg"/>
                 </audio>
                 
-                <div class="container pb-5">
-                    <div class="row">
-                        <div class="col-xs-12 d-block d-md-none p-3">
-                            <img src="/public/svg/got-image-row.svg" alt="" class="mw-100"/>
-                        </div>
-                        <div class="col-xs-12 col-md-5 align-items-center d-flex py-4">
-                            <div>
-                                <h1 class="got-text-big white">All men must bet</h1>
-                                <p class="got-text-mid">The ultimate Game of Thrones season 8 death pool. Who will live? Who will die? Who will turn into a blood thirsty ice zombie? Place your bets and compete against your coworkers.</p>
-                                <a href="" class="btn got-btn">Place my death bets</a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-7 align-items-center d-flex py-5">
-                            <div class="d-none d-md-block">
-                                <img src="/public/svg/got-image.svg" alt="" class="mw-100"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <TopSection></TopSection>
 
-                <div class="container pb-y">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-3 ">
-                            <div class="got-status-box">
-                                <h3 class="mb-0"><span class="got-status-big-number">02</span>/40</h3>
-                                <p class="got-medium-label">Characters dead</p>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-15 align-items-center d-flex text-center">
-                            <p class="got-medium-label white mx-auto">And</p>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                            <div class="got-status-box">
-                                <h3 class="mb-0"><span class="got-status-big-number">01</span>/02</h3>
-                                <p class="got-medium-label">Turned white</p>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-15 align-items-center d-flex text-center">
-                            <p class="got-medium-label white mx-auto">After</p>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                            <div class="got-status-box">
-                                <h3 class="mb-0"><span class="got-status-big-number">01</span>/06</h3>
-                                <p class="got-medium-label">Episodes</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <StatisticsSection title="Statistics"></StatisticsSection>
 
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-xs-12 col-lg-8 mb-5">
-                            <h2 class="my-3 got-text-slim white">Character Status</h2>
-                            <table class="table got-table">
-                                <thead class="background-dark-grey">
-                                    <tr class="color-white">
-                                        <th scope="col">Character Name</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Bets Alive</th>
-                                        <th scope="col">Bets Dead</th>
-                                        <th scope="col">Bets Walker</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <CharacterCard 
-                                        betsDeadCount="2"
-                                        betsAliveCount="4"
-                                        betsWalkerCount="2" 
-                                        statusClass="background-dead" 
-                                        name="John Snow" 
-                                        status="Dead!"
-                                    />
-                                    <CharacterCard 
-                                        betsDeadCount="2"
-                                        betsAliveCount="4"
-                                        betsWalkerCount="2" 
-                                        statusClass="background-walker" 
-                                        name="Danaerys Targaryen" 
-                                        status="Walker"
-                                    />
-                                    <CharacterCard 
-                                        betsDeadCount="2"
-                                        betsAliveCount="4"
-                                        betsWalkerCount="2" 
-                                        statusClass="" 
-                                        name="Tyrion Lannister" 
-                                        status="Alive"
-                                    />
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-xs-12 col-lg-4 mb-5">
-                            <h2 class="got-text-slim my-3 white">Employee Highscore</h2>
-                            <table class="table got-table">
-                                <thead class="background-gold">
-                                    <tr class="color-white">
-                                        <th scope="col">Employee name</th>
-                                        <th scope="col">Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Anton Estlund</td>
-                                        <td>32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nils Olofsson</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ebba Dahlqvist</td>
-                                        <td>8</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <CharacterTable title="Character Status"></CharacterTable>
+
+                        <EmployeeTable title="Employee Highscore"></EmployeeTable>
                     </div>
                 </div>
 

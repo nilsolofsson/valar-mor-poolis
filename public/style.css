@@ -6,11 +6,6 @@ body {
 	color: white;
 }
 
-.col-md-15 {
-	flex: 0 0 12.499999995%;
-	max-width: 12.499999995%;
-}
-
 .got-btn {
 	background: #FF4545;
 	color: white;
@@ -94,4 +89,11 @@ body {
 
 .color-white {
 	color: white;
+}
+
+@media (min-width: 768px) {
+	.col-md-15 {
+		flex: 0 0 12.499999995%;
+		max-width: 12.499999995%;
+	}
 }
