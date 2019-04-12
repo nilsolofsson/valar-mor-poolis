@@ -5,6 +5,10 @@ class Base extends React.Component {
         return (
             <html>
                 <head>
+                    <meta charset="utf-8">
+                    <meta http-equiv="x-ua-compatible" content="ie=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                
                     <title>{this.props.title}</title>
                     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet"></link>
 
