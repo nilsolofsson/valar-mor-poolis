@@ -23,9 +23,8 @@ class Scoreboard extends React.Component {
 
                 <div class="container py-5">
                     <div class="row">
-                        <CharacterTable title="Character Status" characters={this.props.characters}></CharacterTable>
-
-                        <EmployeeTable title="Employee Highscore"></EmployeeTable>
+                        <CharacterTable title="Character Status" characters={this.props.characters}></CharacterTable>            
+                        <EmployeeTable title="Employee Highscore" players={this.props.players}></EmployeeTable>
                     </div>
                 </div>
 

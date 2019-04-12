@@ -2,9 +2,21 @@ const React = require('react'),
     EmployeeRow = require('../components/employee_row.jsx');
 
 class EmployeeTable extends React.Component {
+    renderPlayers() {
+        let playersList = [];
+        this.props.players.forEach(player => playersList.push(
+            <EmployeeRow
+            name={player.name}
+            points={player.points}
+            />
+        ));
+
+        return playersList;
+    }
+
     render() {
         return (
-            <div class="col-xs-12 col-lg-4 mb-5">
+            <div class="col-xs- col-lg-4 mb-5">
                 <h2 class="got-text-slim my-3 white">{ this.props.title }</h2>
                 <table class="table got-table">
                     <thead class="background-gold">
@@ -14,9 +26,7 @@ class EmployeeTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <EmployeeRow name="Anton Estlund" points ="32"/>
-                        <EmployeeRow name="Nils Olofsson" points ="24"/>
-                        <EmployeeRow name="Ebba Dahlqvist" points ="22"/>
+                        {this.renderPlayers()}
                     </tbody>
                 </table>
             </div>
