@@ -30,9 +30,7 @@ class Server {
         });
 
         this.server.get('*', async (req, res) => {
-            let characters = await this.Got.getCharacterStatuses();
-            let players     = await this.Got.getUserResponseNames();
-            res.render('GET/404', {characters, players});
+            res.render('GET/404');
         });
     }
 
