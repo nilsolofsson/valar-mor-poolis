@@ -17,7 +17,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="col-xs-12 col-md-7 align-items-center d-flex py-5">
                         <div class="d-none d-md-block">
-                            <img src="/public/svg/got-image.svg" alt="" class="mw-100"/>
+                            <img src="/public/svg/got-image.png" alt="" class="mw-100"/>
                         </div>
                     </div>
                 </div>
