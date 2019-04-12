@@ -5,7 +5,6 @@ const React = require('react'),
     StatisticsSection = require('../components/statistics_section.jsx'),
     CharacterTable = require('../components/character_table.jsx'),
     EmployeeTable = require('../components/employee_table.jsx');
-    
 
 class Scoreboard extends React.Component {
     render() {
@@ -17,14 +16,14 @@ class Scoreboard extends React.Component {
                 </audio>
 
                 <Snow></Snow>
-                
+
                 <TopSection title="All men must bet"></TopSection>
 
                 <StatisticsSection title="Statistics"></StatisticsSection>
 
                 <div class="container py-5">
                     <div class="row">
-                        <CharacterTable title="Character Status"></CharacterTable>
+                        <CharacterTable title="Character Status" characters={this.props.characters}></CharacterTable>
 
                         <EmployeeTable title="Employee Highscore"></EmployeeTable>
                     </div>

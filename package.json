@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sheetbase/sheets-server": "0.0.16",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",

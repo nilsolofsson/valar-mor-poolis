@@ -5,6 +5,8 @@ class Server {
         this.config = config.webserver;
         this.EOL = require('os').EOL;
 
+        this.Got = new (require('./controllers/got-controller'))(config.gotController);
+
         this.server.set('views', __dirname + '/routes');
         this.server.set('view engine', 'jsx');
         this.server.engine('jsx', require('express-react-views').createEngine());
@@ -17,8 +19,10 @@ class Server {
     }
 
     setupRoutes() {
-        this.server.get('*', (req,res) => {
-            res.render('GET/scoreboard');
+        this.server.get('*', async (req,res) => {
+            let characters = await this.Got.getCharacterStatuses();
+
+            res.render('GET/scoreboard', {characters});
         });
     }
 

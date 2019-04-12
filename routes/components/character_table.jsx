@@ -2,6 +2,22 @@ const React = require('react'),
     CharacterCard = require('../components/character_card.jsx');
 
 class CharacterTable extends React.Component {
+    renderCharacters() {
+        let characterList = [];
+        this.props.characters.forEach(character => characterList.push(
+            <CharacterCard
+                betsDeadCount="2"
+                betsAliveCount="4"
+                betsWalkerCount="2" 
+                statusClass="background-dead" 
+                name={character.name}
+                status={character.status}
+            />
+        ));
+
+        return characterList;
+    }
+
     render() {
         return (
             <div class="col-xs-12 col-lg-8 mb-5">
@@ -17,30 +33,7 @@ class CharacterTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <CharacterCard 
-                            betsDeadCount="2"
-                            betsAliveCount="4"
-                            betsWalkerCount="2" 
-                            statusClass="background-dead" 
-                            name="John Snow" 
-                            status="Dead!"
-                        />
-                        <CharacterCard 
-                            betsDeadCount="2"
-                            betsAliveCount="4"
-                            betsWalkerCount="2" 
-                            statusClass="background-walker" 
-                            name="Danaerys Targaryen" 
-                            status="Walker"
-                        />
-                        <CharacterCard 
-                            betsDeadCount="2"
-                            betsAliveCount="4"
-                            betsWalkerCount="2" 
-                            statusClass="" 
-                            name="Tyrion Lannister" 
-                            status="Alive"
-                        />
+                        {this.renderCharacters()}
                     </tbody>
                 </table>
             </div>
@@ -49,4 +42,3 @@ class CharacterTable extends React.Component {
 }
 
 module.exports = CharacterTable;
-    
