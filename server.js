@@ -29,7 +29,7 @@ class Server {
             });
         });
 
-        this.server.get('*', async (req, res) => {
+        this.server.get('*', (req, res) => {
             res.render('GET/404');
         });
     }
