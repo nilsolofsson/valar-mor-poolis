@@ -18,7 +18,7 @@ class Scoreboard extends React.Component {
 
                 <TopSection title="All men must bet"></TopSection>
 
-                <StatisticsSection title="Statistics"></StatisticsSection>
+                <StatisticsSection title="Statistics" stats={this.props.stats}></StatisticsSection>
 
                 <div class="container py-5">
                     <div class="row">

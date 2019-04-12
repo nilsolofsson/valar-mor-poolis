@@ -56,6 +56,7 @@ class GameOfThrones {
         if (cache !== null) {
             return cache;
         }
+
         let rows = await this.Data.getRows(0, 1, 40);
 
         let returnArr = [];
@@ -70,6 +71,48 @@ class GameOfThrones {
         this.saveToCache('UserResponseNames', returnArr);
 
         return returnArr;
+    }
+
+    async getStatistics() {
+        let cache = this.fetchFromCache('getStatistics');
+
+        if (cache !== null) {
+            return cache;
+        }
+
+        let amountDead = 0,
+        amountEpisodes = Number((await this.Data.getCells(1,3,3,13,13))[0].value),
+        amountWalkers = 0,
+        characters = await this.getCharacterStatuses(),
+        totalCharacters = characters.length,
+        totalEpisodes = Number((await this.Data.getCells(1,3,3,14,14))[0].value);
+
+        characters.forEach((character) => {
+            switch (character.status) {
+                case 'Alive!':
+                    break;
+
+                case 'Dead!':
+                    amountDead++;
+                    break;
+
+                default:
+                    amountWalkers++;
+                    break;
+                }
+        });
+
+        let returnObj = {
+            amountDead,
+            amountEpisodes,
+            amountWalkers,
+            totalCharacters,
+            totalEpisodes
+        }
+
+        this.saveToCache('getStatistics', returnObj);
+
+        return returnObj
     }
 }
 
