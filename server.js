@@ -30,7 +30,7 @@ class Server {
             let players     = await this.Got.getUserResponseNames();
             res.render('GET/404', {characters, players});
         });
-    }1
+    }
 
     createRouteEngine(method, route) {
         return (req, res) => {
