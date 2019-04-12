@@ -6,10 +6,10 @@ class CharacterTable extends React.Component {
         let characterList = [];
         this.props.characters.forEach(character => characterList.push(
             <CharacterCard
-                betsDeadCount="2"
-                betsAliveCount="4"
-                betsWalkerCount="2" 
-                statusClass="background-dead" 
+                betsAliveCount={character.betsAlive}
+                betsDeadCount={character.betsDead}
+                betsWalkerCount={character.betsWhiteWalker}
+                statusClass={character.status == 'Alive!' ? '' : ('background-'+(character.status == 'Dead!' ? 'dead' : 'walker'))}
                 name={character.name}
                 status={character.status}
             />
