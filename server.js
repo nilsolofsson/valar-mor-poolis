@@ -3,6 +3,7 @@ class Server {
         this.express = require('express');
         this.server = this.express();
         this.config = config.webserver;
+        this.ttl = config.gotController.cacheTTL/1000;
         this.EOL = require('os').EOL;
 
         this.Got = new (require('./controllers/got-controller'))(config.gotController);
@@ -11,11 +12,17 @@ class Server {
         this.server.set('view engine', 'jsx');
         this.server.engine('jsx', require('express-react-views').createEngine());
 
+        this.server.use(this.headers.bind(this));
         this.server.use('/public', this.express.static('public'));
 
         this.setupRoutes();
 
         this.server.listen(this.config.port, this.serverStartMessage.bind(this));
+    }
+
+    headers(req,res,next) {
+        res.set('Cache-Control', 's-maxage=' + this.ttl);
+        next();
     }
 
     setupRoutes() {
