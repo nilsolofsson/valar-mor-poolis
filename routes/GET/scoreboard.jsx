@@ -16,7 +16,7 @@ class Scoreboard extends React.Component {
                 
                 <Snow></Snow>
 
-                <TopSection title="All men must bet"></TopSection>
+                <TopSection teamName="En appstudio" title="All men must bet"></TopSection>
 
                 <StatisticsSection title="Statistics" stats={this.props.stats}></StatisticsSection>
 
