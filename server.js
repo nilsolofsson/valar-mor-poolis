@@ -27,7 +27,8 @@ class Server {
             res.render('GET/scoreboard', {
                 characters,
                 scores,
-                stats
+                stats,
+                title: 'Game of thrones S08, Deathpool'
             });
         });
 
