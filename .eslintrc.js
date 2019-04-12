@@ -74,8 +74,6 @@ module.exports = {
             "error",
             "beside"
         ],
-        "indent": "error",
-        "indent-legacy": "error",
         "init-declarations": "error",
         "jsx-quotes": "error",
         "key-spacing": "error",
@@ -162,7 +160,6 @@ module.exports = {
         "no-octal-escape": "error",
         "no-param-reassign": "error",
         "no-path-concat": "off",
-        "no-plusplus": "error",
         "no-process-env": "error",
         "no-process-exit": "error",
         "no-proto": "error",
