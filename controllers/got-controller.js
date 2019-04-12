@@ -89,6 +89,10 @@ class GameOfThrones {
                     score += 1;
                 }
                 
+                if (characterStatus == 'whitewalker' && playerBet == 'dead') {
+                    score += 1;
+                }
+                
                 if (player['will' + characterName + 'becomeawhitewalker'] != '') {
                     let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();                    
                     if (characterStatus == 'whitewalker' && playerBetWhiteWalker == 'yes') {
@@ -96,7 +100,7 @@ class GameOfThrones {
                     }
 
                     if (characterStatus == 'dead' && playerBetWhiteWalker == 'yes') {
-                        score -= 1;
+                        score -= 2;
                     }
                 }
             })
