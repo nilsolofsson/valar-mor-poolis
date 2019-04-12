@@ -15,6 +15,15 @@ body {
 	transition: opacity 0.2s ease;
 }
 
+.badge-got {
+	font-weight: 200;
+	font-size: 12px;
+	padding: 6px 10px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #484c4f;
+}
+
 .got-medium-label {
 	font-size: 16px;
 	text-transform: uppercase;
