@@ -4,7 +4,7 @@ const React = require('react'),
 class EmployeeTable extends React.Component {
     renderPlayers() {
         let playersList = [];
-        this.props.players.forEach(player => playersList.push(
+        this.props.scores.forEach(player => playersList.push(
             <EmployeeRow
             name={player.name}
             points={player.points}
