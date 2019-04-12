@@ -19,11 +19,20 @@ class Server {
     }
 
     setupRoutes() {
-        this.server.get('*', async (req,res) => {
-            let characters  = await this.Got.getCharacterStatuses();
-            let scores      = await this.Got.getScores();
-            console.log(scores)
-            res.render('GET/scoreboard', {characters, scores});
+        this.server.get('/', async (req,res) => {
+            let characters = await this.Got.getCharacterStatuses(),
+                scores = await this.Got.getScores(),
+                stats = await this.Got.getStatistics();
+
+            res.render('GET/scoreboard', {
+                characters,
+                scores,
+                stats
+            });
+        });
+
+        this.server.get('*', (req, res) => {
+            res.render('GET/404');
         });
     }
 

@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 class GoogleSheets {
     constructor(config) {
         // todo: move to config
@@ -39,6 +40,23 @@ class GoogleSheets {
                 }
 
                 return resolve(rows);
+            })
+        });
+    }
+
+    getCells(sheet, minRow, maxRow, minCol, maxCol) {
+        return new Promise((resolve, reject) => {
+            this.sheets[sheet].getCells({
+                'max-col': maxCol,
+                'max-row': maxRow,
+                'min-col': minCol,
+                'min-row': minRow
+            },(err, cells) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(cells);
             })
         });
     }

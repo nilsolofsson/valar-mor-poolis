@@ -11,15 +11,15 @@ class StatisticsSection extends React.Component {
                     </div>
                 </div>
                 <div class="row">
-                    <StatisticCard bigStat="03" totalStat="40" statLabel="Characters Dead"></StatisticCard>
+                    <StatisticCard bigStat={(this.props.stats.amountDead<10 ? '0': '')+this.props.stats.amountDead} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="Characters Dead"></StatisticCard>
                     <div class="col-12 col-md-15 py-3 align-items-center d-flex text-center">
                         <p class="got-medium-label white mx-auto">And</p>
                     </div>
-                    <StatisticCard bigStat="02" totalStat="03" statLabel="White / Wight"></StatisticCard>
+                    <StatisticCard bigStat={(this.props.stats.amountWalkers<10 ? '0': '')+this.props.stats.amountWalkers} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="White / Wight"></StatisticCard>
                     <div class="col-12 col-md-15 py-3 align-items-center d-flex text-center">
                         <p class="got-medium-label white mx-auto">After</p>
                     </div>
-                    <StatisticCard bigStat="01" totalStat="06" statLabel="Episodes"></StatisticCard>
+                    <StatisticCard bigStat={(this.props.stats.amountEpisodes<10 ? '0': '')+this.props.stats.amountEpisodes} totalStat={(this.props.stats.totalEpisodes<10 ? '0': '')+this.props.stats.totalEpisodes} statLabel="Episodes"></StatisticCard>
                 </div>
             </div>
         );
