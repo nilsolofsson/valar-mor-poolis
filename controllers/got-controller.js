@@ -31,7 +31,7 @@ class GameOfThrones {
         rows.forEach((row) => {
             returnArr.push({
                 name: row.whatsyourname,
-                points: 0,
+                points: 0
             })
         });
 
