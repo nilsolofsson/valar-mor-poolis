@@ -91,6 +91,48 @@ body {
 	color: white;
 }
 
+
+
+
+/* MUSIC PLAYER */
+
+audio { 
+	margin-top: 20px;
+	margin-left: -248px;
+}
+
+audio::-webkit-media-controls-panel {
+	border-right: 190px solid black;
+	width: 60px;
+	overflow: visible;
+	-webkit-tranistion: all 0.2s ease;
+	tranistion: background-color 0.2s ease;
+}
+
+audio::-webkit-media-controls-play-button {
+	position: absolute;
+	margin-left: 242px;
+}
+
+audio::-webkit-media-controls-panel:hover {
+	background-color: #d7d9e6;
+}
+
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-more-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+	display: none;
+}
+
+
+
+
+
+
+
+
 /* SNOW */
 .snowflake {
 	color: #fff;

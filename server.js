@@ -19,7 +19,7 @@ class Server {
     }
 
     setupRoutes() {
-        this.server.get('*', async (req,res) => {
+        this.server.get('/', async (req,res) => {
             let characters = await this.Got.getCharacterStatuses();
             let players = await this.Got.getUserResponseNames();
 
@@ -28,7 +28,13 @@ class Server {
                 players
             });
         });
-    }
+
+        this.server.get('*', async (req, res) => {
+            let characters = await this.Got.getCharacterStatuses();
+            let players     = await this.Got.getUserResponseNames();
+            res.render('GET/404', {characters, players});
+        });
+    }1
 
     createRouteEngine(method, route) {
         return (req, res) => {
