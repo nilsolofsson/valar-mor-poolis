@@ -1,6 +1,7 @@
 const React = require('react'),
     Base = require('./base.jsx'),
     TopSection = require('../components/top_section.jsx'),
+    MusicPlayer = require('../components/music_player.jsx'),
     Snow = require('../components/snow.jsx'),
     StatisticsSection = require('../components/statistics_section.jsx'),
     CharacterTable = require('../components/character_table.jsx'),
@@ -11,10 +12,8 @@ class Scoreboard extends React.Component {
         return (
             <Base title={this.props.title}>
 
-                <audio autoplay>
-                    <source src="/public/MP3/Game of thrones 8-bit.mp3" type="audio/mpeg"/>
-                </audio>
-
+                <MusicPlayer></MusicPlayer>
+                
                 <Snow></Snow>
 
                 <TopSection title="All men must bet"></TopSection>
