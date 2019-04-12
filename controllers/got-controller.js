@@ -11,8 +11,12 @@ class GameOfThrones {
 
         rows.forEach((row) => {
             returnArr.push({
+                betsAlive: row.betsalive,
+                betsDead: row.betsdead,
+                betsWhiteWalker: row.betswhitewalker,
                 name: row.character,
                 status: row.status
+
             });
         });
 
