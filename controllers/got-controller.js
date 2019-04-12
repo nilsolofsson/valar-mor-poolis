@@ -18,6 +18,21 @@ class GameOfThrones {
 
         return returnArr;
     }
+
+    async getUserResponseNames() {
+        let rows = await this.Data.getRows(0, 1, 40);
+
+        let returnArr = [];
+
+        rows.forEach((row) => {
+            returnArr.push({
+                name: row.whatsyourname,
+                points: 0,
+            })
+        });
+
+        return returnArr;
+    }
 }
 
 module.exports = GameOfThrones;

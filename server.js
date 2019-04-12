@@ -21,8 +21,8 @@ class Server {
     setupRoutes() {
         this.server.get('*', async (req,res) => {
             let characters = await this.Got.getCharacterStatuses();
-
-            res.render('GET/scoreboard', {characters});
+            let players     = await this.Got.getUserResponseNames();
+            res.render('GET/scoreboard', {characters, players});
         });
     }
 
