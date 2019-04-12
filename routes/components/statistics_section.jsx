@@ -2,6 +2,10 @@ const React = require('react'),
     StatisticCard = require('../components/statistic_card.jsx');
 
 class StatisticsSection extends React.Component {
+    amountDead() {
+        return this.props.stats.amountDead+this.props.stats.amountWalkers;
+    }
+
     render() {
         return (
             <div class="container py-5">
@@ -11,7 +15,7 @@ class StatisticsSection extends React.Component {
                     </div>
                 </div>
                 <div class="row">
-                    <StatisticCard bigStat={(this.props.stats.amountDead<10 ? '0': '')+this.props.stats.amountDead} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="Characters Dead"></StatisticCard>
+                    <StatisticCard bigStat={(this.amountDead()<10 ? '0': '')+this.amountDead()} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="Characters Dead"></StatisticCard>
                     <div class="col-12 col-md-15 py-3 align-items-center d-flex text-center">
                         <p class="got-medium-label white mx-auto">And</p>
                     </div>
