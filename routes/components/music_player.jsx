@@ -4,7 +4,7 @@ class MusicPlayer extends React.Component {
     render() {
         return (
             <audio controls controlsList="nodownload">
-                <source src="/public/MP3/Game of thrones 8-bit.mp3" type="audio/mpeg"/>
+                <source src="/public/mp3/game-of-thrones-8-bit.mp3" type="audio/mpeg"/>
             </audio>
         );
     }
