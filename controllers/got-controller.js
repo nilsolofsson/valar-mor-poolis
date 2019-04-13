@@ -79,6 +79,7 @@ class GameOfThrones {
 
         players.forEach(player => {
             let score = 0;
+            console.log('\n');
             
             characters.forEach(character => {
                 let characterName = character.name.toLowerCase().replace(/\s/g, '');
@@ -87,20 +88,25 @@ class GameOfThrones {
                 
                 if (characterStatus == playerBet) {
                     score += 1;
+                    console.log('+1 :' + characterStatus +' == ' + playerBet);
+                    
                 }
                 
                 if (characterStatus == 'whitewalker' && playerBet == 'dead') {
                     score += 1;
+                    console.log('+1 :' + characterStatus + ' == whitewalker && ' + playerBet + ' == dead' );
                 }
                 
                 if (player['will' + characterName + 'becomeawhitewalker'] != '') {
                     let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();                    
                     if (characterStatus == 'whitewalker' && playerBetWhiteWalker == 'yes') {
                         score +=1;
+                        console.log('+1 :' + characterStatus + ' == whitewalker && ' + playerBetWhiteWalker + ' == yes');
                     }
 
                     if (characterStatus == 'dead' && playerBetWhiteWalker == 'yes') {
-                        score -= 2;
+                        score -= 1;
+                        console.log('-1 :' + characterStatus + ' == dead && ' + playerBetWhiteWalker + ' == yes');
                     }
                 }
             })
