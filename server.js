@@ -12,8 +12,8 @@ class Server {
         this.server.set('view engine', 'jsx');
         this.server.engine('jsx', require('express-react-views').createEngine());
 
+        this.server.use('/public',this.express.static('public'));
         this.server.use(this.headers.bind(this));
-        this.server.use('/public', this.express.static('public'));
 
         this.setupRoutes();
 

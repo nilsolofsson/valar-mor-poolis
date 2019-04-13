@@ -9,7 +9,10 @@ class GameOfThrones {
     }
 
     fetchFromCache(object) {
-        if (this.cache[object] != null && this.cache[object].cachedTime <= Date.now()+this.cacheTTL) {
+        if (this.cache[object] != null && this.cache[object].cachedTime+this.cacheTTL > Date.now()) {
+            console.log('cachedTime ',this.cache[object].cachedTime);
+            console.log('date.now ',Date.now());
+            console.log('ttl ',this.cacheTTL);
             return this.cache[object].data;
         }
 
