@@ -82,7 +82,6 @@ class GameOfThrones {
 
         players.forEach(player => {
             let score = 0;
-            console.log('\n');
             
             characters.forEach(character => {
                 let characterName = character.name.toLowerCase().replace(/\s/g, '');
@@ -91,39 +90,53 @@ class GameOfThrones {
                 
                 if (characterStatus == playerBet) {
                     score += 1;
-                    console.log('+1 :' + characterStatus +' == ' + playerBet);
                     
                 }
                 
                 if (characterStatus == 'whitewalker' && playerBet == 'dead') {
                     score += 1;
-                    console.log('+1 :' + characterStatus + ' == whitewalker && ' + playerBet + ' == dead' );
                 }
                 
                 if (player['will' + characterName + 'becomeawhitewalker'] != '') {
                     let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();                    
                     if (characterStatus == 'whitewalker' && playerBetWhiteWalker == 'yes') {
                         score +=1;
-                        console.log('+1 :' + characterStatus + ' == whitewalker && ' + playerBetWhiteWalker + ' == yes');
                     }
 
                     if (characterStatus == 'dead' && playerBetWhiteWalker == 'yes') {
                         score -= 1;
-                        console.log('-1 :' + characterStatus + ' == dead && ' + playerBetWhiteWalker + ' == yes');
                     }
                 }
             })
 
             returnArr.push({
                 name: player.whatsyourname,
-                points: score
+                points: score.toString() /* The sorting needs it to be string ... */
             })
         })
 
+        returnArr.sort(this.dynamicSort('-points'));
         this.saveToCache('getScores', returnArr);
         
         return returnArr;
 
+    }
+
+    dynamicSort(property) {
+        var sortOrder = 1;
+        
+        if (property[0] === "-") {
+            sortOrder = -1;
+            property = property.substr(1);
+        }
+
+        return function (a, b) {
+            if (sortOrder == -1) {
+                return b[property].localeCompare(a[property]);
+            } else {
+                return a[property].localeCompare(b[property]);
+            }
+        }
     }
 
     async getStatistics() {
