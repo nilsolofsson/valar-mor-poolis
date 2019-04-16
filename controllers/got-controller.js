@@ -82,11 +82,17 @@ class GameOfThrones {
 
         players.forEach(player => {
             let score = 0;
+            let playerBets = [];
             
             characters.forEach(character => {
                 let characterName = character.name.toLowerCase().replace(/\s/g, '');
                 let characterStatus = character.status.toLowerCase().replace(/!/g, '');
                 let playerBet = player['will' + characterName + 'survive'].toLowerCase();
+                let characterBetsArray = {
+                    name: character.name,
+                    lifeBet: playerBet,
+                    whiteWalkerBet: '',
+                }
                 
                 if (characterStatus == playerBet) {
                     score += 1;
@@ -98,7 +104,9 @@ class GameOfThrones {
                 }
                 
                 if (player['will' + characterName + 'becomeawhitewalker'] != '') {
-                    let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();                    
+                    let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();
+                    characterBetsArray.whiteWalkerBet = playerBetWhiteWalker
+
                     if (characterStatus == 'whitewalker' && playerBetWhiteWalker == 'yes') {
                         score +=1;
                     }
@@ -107,11 +115,14 @@ class GameOfThrones {
                         score -= 1;
                     }
                 }
+                playerBets.push(characterBetsArray)
+                
             })
 
             returnArr.push({
                 name: player.whatsyourname,
-                points: score.toString() /* The sorting needs it to be string ... */
+                points: score.toString(), /* The sorting needs it to be string ... */
+                bets: playerBets
             })
         })
 

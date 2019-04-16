@@ -8,6 +8,7 @@ class EmployeeTable extends React.Component {
             <EmployeeRow
             name={player.name}
             points={player.points}
+            bets={player.bets}
             />
         ));
 
