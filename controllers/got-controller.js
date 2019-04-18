@@ -10,9 +10,6 @@ class GameOfThrones {
 
     fetchFromCache(object) {
         if (this.cache[object] != null && this.cache[object].cachedTime+this.cacheTTL > Date.now()) {
-            console.log('cachedTime ',this.cache[object].cachedTime);
-            console.log('date.now ',Date.now());
-            console.log('ttl ',this.cacheTTL);
             return this.cache[object].data;
         }
 
@@ -52,7 +49,7 @@ class GameOfThrones {
 
         return returnArr;
     }
-    
+
     async getUserResponses() {
         let cache = this.fetchFromCache('UserResponses');
 
@@ -63,90 +60,103 @@ class GameOfThrones {
         let rows = await this.Data.getRows(0, 1, 40);
 
         this.saveToCache('UserResponses', rows);
-        
+
         return rows;
     }
 
     async getScores() {
-
         let cache = this.fetchFromCache('getScores');
 
         if (cache !== null) {
             return cache;
         }
 
-
         let characters = await this.getCharacterStatuses();
-        let players    = await this.getUserResponses()
-        let returnArr  = [];
+        let players = await this.getUserResponses()
+        let returnArr = [];
 
-        players.forEach(player => {
-            let score = 0;
-            let playerBets = [];
-            
-            characters.forEach(character => {
-                let characterName = character.name.toLowerCase().replace(/\s/g, '');
-                let characterStatus = character.status.toLowerCase().replace(/!/g, '');
-                let playerBet = player['will' + characterName + 'survive'].toLowerCase();
-                let characterBetsArray = {
-                    name: character.name,
-                    lifeBet: playerBet,
-                    whiteWalkerBet: '',
-                }
-                
-                if (characterStatus == playerBet) {
-                    score += 1;
-                    
-                }
-                
-                if (characterStatus == 'whitewalker' && playerBet == 'dead') {
-                    score += 1;
-                }
-                
-                if (player['will' + characterName + 'becomeawhitewalker'] != '') {
-                    let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();
-                    characterBetsArray.whiteWalkerBet = playerBetWhiteWalker
+        players.forEach((player) => {
+            returnArr.push(this.calculatePlayerScore(player, characters));
+        });
 
-                    if (characterStatus == 'whitewalker' && playerBetWhiteWalker == 'yes') {
-                        score +=1;
-                    }
+        returnArr.sort((objA, objB) => {
+            if (objA.points < objB.points) {
+                return 1;
+            }
 
-                    if (characterStatus == 'dead' && playerBetWhiteWalker == 'yes') {
-                        score -= 1;
-                    }
-                }
-                playerBets.push(characterBetsArray)
-                
-            })
+            if (objA.points > objB.points) {
+                return -1;
+            }
 
-            returnArr.push({
-                name: player.whatsyourname,
-                points: score.toString(), /* The sorting needs it to be string ... */
-                bets: playerBets
-            })
-        })
+            return 0
+        });
 
-        returnArr.sort(this.dynamicSort('-points'));
         this.saveToCache('getScores', returnArr);
-        
-        return returnArr;
 
+        return returnArr;
+    }
+
+
+    calculatePlayerScore(player, characters) {
+        let score = 0;
+        let playerBets = [];
+
+        characters.forEach((character) => {
+            let characterName = character.name.toLowerCase().replace(/\s/gu, '');
+            let characterStatus = character.status.toLowerCase().replace(/!/gu, '');
+            let playerBet = player['will' + characterName + 'survive'].toLowerCase();
+            let characterBetsArray = {
+                lifeBet: playerBet,
+                name: character.name,
+                whiteWalkerBet: ''
+            }
+
+            if (characterStatus === playerBet) {
+                score += 1;
+            }
+
+            if (characterStatus === 'whitewalker' && playerBet === 'dead') {
+                score += 1;
+            }
+
+            if (player['will' + characterName + 'becomeawhitewalker'] !== '') {
+                let playerBetWhiteWalker = player['will' + characterName + 'becomeawhitewalker'].toLowerCase();
+
+                characterBetsArray.whiteWalkerBet = playerBetWhiteWalker
+
+                if (characterStatus === 'whitewalker' && playerBetWhiteWalker === 'yes') {
+                    score +=1;
+                }
+
+                if (characterStatus === 'dead' && playerBetWhiteWalker === 'yes') {
+                    score -= 1;
+                }
+            }
+            playerBets.push(characterBetsArray)
+        });
+
+        return {
+            bets: playerBets,
+            name: player.whatsyourname,
+            points: score
+        };
     }
 
     dynamicSort(property) {
-        var sortOrder = 1;
-        
-        if (property[0] === "-") {
+        let sortOrder = 1;
+
+        if (property[0] === '-') {
             sortOrder = -1;
+            // eslint-disable-next-line no-param-reassign
             property = property.substr(1);
         }
 
-        return function (a, b) {
-            if (sortOrder == -1) {
+        return (a, b) => {
+            if (sortOrder === -1) {
                 return b[property].localeCompare(a[property]);
-            } else {
-                return a[property].localeCompare(b[property]);
             }
+
+            return a[property].localeCompare(b[property]);
         }
     }
 
