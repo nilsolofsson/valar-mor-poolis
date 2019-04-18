@@ -4,17 +4,17 @@ class CharacterStatusBet extends React.Component {
 
     getPillClass() {
         if (this.props.lifeBet == 'alive') {
-            return "badge badge-pill badge-success"
+            return "badge-success"
         } else {
-            return "badge badge-pill badge-danger"
+            return "badge-danger"
         }
     }
 
     getWhiteWalker() {
         if (this.props.whiteWalkerBet == 'yes') {
-            return "WIGHT"
+            return <span class="badge badge-pill badge-info ml-1">WIGHT</span>
         } else {
-            return ""
+            return;
         }
     }
 
@@ -24,8 +24,8 @@ class CharacterStatusBet extends React.Component {
             <div class="d-flex flex-column align-items-center justify-content-center m-4">
                 <div>{this.props.name}</div>
                 <div>
-                    <span class={this.getPillClass()}>{this.props.lifeBet}</span>
-                    <span class="badge badge-pill badge-info ml-1">{this.getWhiteWalker()}</span>
+                    <span class={"badge badge-pill "+this.getPillClass()}>{this.props.lifeBet}</span>
+                    {this.getWhiteWalker()}
                 </div>
             </div>
         );

@@ -6,6 +6,10 @@ class StatisticsSection extends React.Component {
         return this.props.stats.amountDead+this.props.stats.amountWalkers;
     }
 
+    leadingZero(value) {
+        return (value<10 ? '0': '');
+    }
+
     render() {
         return (
             <div class="container py-5">
@@ -15,15 +19,15 @@ class StatisticsSection extends React.Component {
                     </div>
                 </div>
                 <div class="row">
-                    <StatisticCard bigStat={(this.amountDead()<10 ? '0': '')+this.amountDead()} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="Characters Dead"></StatisticCard>
+                    <StatisticCard bigStat={this.leadingZero(this.amountDead())+this.amountDead()} totalStat={this.leadingZero(this.props.stats.totalCharacters)+this.props.stats.totalCharacters} statLabel="Characters Dead"></StatisticCard>
                     <div class="col-12 col-md-15 py-3 align-items-center d-flex text-center">
                         <p class="got-medium-label white mx-auto">And</p>
                     </div>
-                    <StatisticCard bigStat={(this.props.stats.amountWalkers<10 ? '0': '')+this.props.stats.amountWalkers} totalStat={(this.props.stats.totalCharacters<10 ? '0': '')+this.props.stats.totalCharacters} statLabel="White / Wight"></StatisticCard>
+                    <StatisticCard bigStat={this.leadingZero(this.props.stats.amountWalkers)+this.props.stats.amountWalkers} totalStat={this.leadingZero(this.props.stats.totalCharacters)+this.props.stats.totalCharacters} statLabel="White / Wight"></StatisticCard>
                     <div class="col-12 col-md-15 py-3 align-items-center d-flex text-center">
                         <p class="got-medium-label white mx-auto">After</p>
                     </div>
-                    <StatisticCard bigStat={(this.props.stats.amountEpisodes<10 ? '0': '')+this.props.stats.amountEpisodes} totalStat={(this.props.stats.totalEpisodes<10 ? '0': '')+this.props.stats.totalEpisodes} statLabel="Episodes"></StatisticCard>
+                    <StatisticCard bigStat={this.leadingZero(this.props.stats.amountEpisodes)+this.props.stats.amountEpisodes} totalStat={this.leadingZero(this.props.stats.totalEpisodes)+this.props.stats.totalEpisodes} statLabel="Episodes"></StatisticCard>
                 </div>
             </div>
         );
