@@ -28,4 +28,3 @@ class TopSection extends React.Component {
 }
 
 module.exports = TopSection;
-    

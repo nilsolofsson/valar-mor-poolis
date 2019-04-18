@@ -46,4 +46,3 @@ class Snow extends React.Component {
 }
 
 module.exports = Snow;
-    

@@ -11,4 +11,3 @@ class MusicPlayer extends React.Component {
 }
 
 module.exports = MusicPlayer;
-    

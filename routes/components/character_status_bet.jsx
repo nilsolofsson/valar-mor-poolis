@@ -10,7 +10,7 @@ class CharacterStatusBet extends React.Component {
         }
     }
 
-    getWhiteWalker() {       
+    getWhiteWalker() {
         if (this.props.whiteWalkerBet == 'yes') {
             return "WIGHT"
         } else {

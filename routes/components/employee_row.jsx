@@ -2,7 +2,6 @@ const React = require('react'),
     CharacterStatusBet = require('../components/character_status_bet.jsx');
 
 class EmployeeRow extends React.Component {
-    
     getModalId() {
         return "modal-" + this.props.name.toLowerCase().replace(/\s/g, '');
     }
@@ -25,7 +24,7 @@ class EmployeeRow extends React.Component {
             <tr className={this.props.class}>
                 <td><a href="" data-toggle="modal" data-target={"#" + this.getModalId()}>{this.props.name}</a></td>
                 <td>{this.props.points}</td>
-                
+
                 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id={this.getModalId()}>
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content container p-4">
@@ -42,4 +41,3 @@ class EmployeeRow extends React.Component {
 }
 
 module.exports = EmployeeRow;
-    

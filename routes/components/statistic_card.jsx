@@ -14,4 +14,3 @@ class StatisticCard extends React.Component {
 }
 
 module.exports = StatisticCard;
-    

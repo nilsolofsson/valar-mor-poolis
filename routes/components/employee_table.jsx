@@ -36,4 +36,3 @@ class EmployeeTable extends React.Component {
 }
 
 module.exports = EmployeeTable;
-    

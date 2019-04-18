@@ -15,4 +15,3 @@ class CharacterCard extends React.Component {
 }
 
 module.exports = CharacterCard;
-    

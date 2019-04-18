@@ -13,7 +13,7 @@ class Scoreboard extends React.Component {
             <Base title={this.props.title}>
 
                 <MusicPlayer></MusicPlayer>
-                
+
                 <Snow></Snow>
 
                 <TopSection teamName="En appstudio" title="All men must bet"></TopSection>
@@ -22,7 +22,7 @@ class Scoreboard extends React.Component {
 
                 <div class="container py-5">
                     <div class="row">
-                        <CharacterTable title="Character Status" characters={this.props.characters}></CharacterTable>            
+                        <CharacterTable title="Character Status" characters={this.props.characters}></CharacterTable>
                         <EmployeeTable title="Employee Highscore" scores={this.props.scores}></EmployeeTable>
                     </div>
                 </div>

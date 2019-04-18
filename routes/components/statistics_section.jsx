@@ -31,4 +31,3 @@ class StatisticsSection extends React.Component {
 }
 
 module.exports = StatisticsSection;
-    
