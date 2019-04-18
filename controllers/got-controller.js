@@ -9,6 +9,7 @@ class GameOfThrones {
     }
 
     fetchFromCache(object) {
+        // eslint-disable-next-line eqeqeq
         if (this.cache[object] != null && this.cache[object].cachedTime+this.cacheTTL > Date.now()) {
             return this.cache[object].data;
         }
