@@ -3,18 +3,13 @@ const React = require('react'),
 
 class EmployeeTable extends React.Component {
     renderPlayers() {
-        let playersList = [];
-        let playerPosition = 1;
-
-        this.props.scores.forEach((player) => {
-            playersList.push(
-                <EmployeeRow
+        let playersList = this.props.scores.map((player, index) => {
+            return <EmployeeRow
                 name={player.name}
                 points={player.points}
                 bets={player.bets}
-                position={playerPosition}
-                />);
-            playerPosition += 1;
+                position={index + 1}
+                />
         });
 
         return playersList;
