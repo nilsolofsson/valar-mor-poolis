@@ -136,6 +136,12 @@ body {
 	background-color: rgba(37, 37, 47, 0.90);
 }
 
+@media (min-width: 576px) {
+	.modal-dialog {
+		max-width: 500px;
+		margin: 4.75rem auto;
+	}
+}
 
 
 /* MUSIC PLAYER */
