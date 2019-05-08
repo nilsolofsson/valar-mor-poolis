@@ -20,18 +20,27 @@ class EmployeeRow extends React.Component {
     }
 
     renderPosition() {
-        let pos = this.props.position;
+        let positionString = this.props.position;
+        let classString = 'player-position';
 
-        switch (pos) {
+        switch (this.props.position) {
             case 1:
-                return <span className="player-position top-three">🥇</span>
+                positionString = '🥇';
+                classString += ' top-three';
+                break;
             case 2:
-                return <span className="player-position top-three">🥈</span>
+                positionString = '🥈';
+                classString += ' top-three';
+                break;
             case 3:
-                return <span className="player-position top-three">🥉</span>
+                positionString = '🥉';
+                classString += ' top-three';
+                break;
             default:
-                return <span className="player-position">{this.props.position}</span>;
+                break;
         }
+
+        return <span className={classString}>{positionString}</span>;
     }
 
     render() {
