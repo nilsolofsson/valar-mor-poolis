@@ -19,10 +19,39 @@ class EmployeeRow extends React.Component {
         return returnArr;
     }
 
+    renderPosition() {
+        let positionString = this.props.position;
+        let classString = 'player-position';
+
+        switch (this.props.position) {
+            case 1:
+                positionString = '🥇';
+                classString += ' top-three';
+                break;
+            case 2:
+                positionString = '🥈';
+                classString += ' top-three';
+                break;
+            case 3:
+                positionString = '🥉';
+                classString += ' top-three';
+                break;
+            default:
+                break;
+        }
+
+        return <span className={classString}>{positionString}</span>;
+    }
+
     render() {
         return (
             <tr className={this.props.class}>
-                <td><a href="" data-toggle="modal" data-target={"#" + this.getModalId()}>{this.props.name}</a></td>
+                <td>
+                    {this.renderPosition()}
+                    <a href="" data-toggle="modal" data-target={"#" + this.getModalId()}>
+                        {this.props.name}
+                    </a>
+                </td>
                 <td>{this.props.points}</td>
 
                 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id={this.getModalId()}>

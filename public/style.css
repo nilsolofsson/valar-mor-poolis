@@ -120,8 +120,35 @@ body {
 	color: white;
 }
 
+.player-position {
+	display: inline-block;
+	margin: 0 1rem 0 0;
+	background-color: rgba(37, 37, 47, 0.3);
+	color: #fff;
+	padding: 0 .2rem;
+	border-radius: 15px;
+	min-width: 30px;
+	text-align: center;
+	font-size: 1rem;
+}
 
+.player-position.top-three {
+	background-color: rgba(37, 37, 47, 0.90);
+}
 
+@media (min-width: 576px) {
+	.modal-dialog {
+		max-width: 500px;
+		margin: 4.75rem auto;
+	}
+}
+
+@media (min-width: 992px) {
+	.modal-lg,
+	.modal-xl {
+		max-width: 800px;
+	}
+}
 
 /* MUSIC PLAYER */
 
